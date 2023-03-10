@@ -1,0 +1,72 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+}
+/* General styles */
+
+body {
+    background-color: bisque;
+}
+img {
+    width: 100%;
+    display: block;
+}
+.wrapper {
+    overflow: hidden;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: 70vw;
+    padding: 2rem;
+}
+
+.title {
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+/* Bayan */
+.bayan__content {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.5s;
+}
+.bayan__title {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+.bayan__radio {
+    display: none;
+    width: 100%;
+}
+.bayan__item {
+    background-color: rgb(148, 108, 48);
+    border-radius: 1rem;
+    border: 2px solid black;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.5s;
+}
+.bayan__item:hover,
+.bayan__radio:checked ~ .bayan__item {
+    background-color: aqua;
+}
+
+.bayan__radio:checked ~ .bayan__content,
+.bayan__radio:hover ~ .bayan__content {
+    max-height: 100%;
+}
