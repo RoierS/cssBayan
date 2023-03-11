@@ -117,9 +117,13 @@ img {
     transform-origin: center;
 }
 
-/* when hover whole bayan the unchecked items titles change color, ___ the same for checked item  */
-.bayan:hover .bayan__radio:not(:checked) + .bayan__label .bayan__header .bayan__title,
+/* when hover whole bayan the unchecked items titles change color,  if item checked its color wheat  */
+
 .bayan__radio:checked + .bayan__label .bayan__header .bayan__title {
+    color: wheat;
+    text-shadow: wheat 0px 0.5px 0.6px, wheat 0.3px 0.7px 0.8px;
+}
+.bayan:hover .bayan__title {
     color: wheat;
     text-shadow: wheat 0px 0.5px 0.6px, wheat 0.3px 0.7px 0.8px;
 }
@@ -128,9 +132,6 @@ img {
 .bayan:hover .bayan__radio:checked + .bayan__label .bayan__header .bayan__icon {
     transform: rotate(45deg);
 }
-
-
-/* !!!!!Problem */
 
 
 /* when click on bayan__item it changes */
