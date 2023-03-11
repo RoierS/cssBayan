@@ -36,8 +36,11 @@ img {
     font-weight: 600;
     font-size: 2rem;
     text-align: center;
+    text-shadow: rgb(69, 45, 5) 0px 2px 3px;
+    letter-spacing: 0.7rem;
     margin-bottom: 2rem;
     cursor: pointer;
+    transition: letter-spacing 0.8s;
 }
 
 /* Bayan */
@@ -46,13 +49,8 @@ img {
     overflow: hidden;
     transition: max-height 0.8s ease-in-out;
 }
-.bayan__icon {
-    align-self: flex-start;
-    opacity: 0;
-    transition: all 0.6s;
-}
+
 .bayan__label {
-    font-size: 1.5rem;
     margin-bottom: 2em;
     cursor: pointer;
 }
@@ -81,45 +79,73 @@ img {
 }
 .bayan__title {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
     color: black;
+    text-shadow: black 0px 0.5px 0.6px, black 0.3px 0.7px 0.8px;
+    transition: all 0.6s;
+}
+.bayan__icon {
+    align-self: flex-start;
+    opacity: 0;
+    font-weight: 700;
+    font-size: 2rem;
     transition: all 0.6s;
 }
 .bayan__img {
-    max-width: 30%;
+    max-width: 45%;
     transition: all 0.6s;
     border-radius: 1rem;
-    margin: 2rem auto;
+    margin: 0rem auto 2rem;
+    box-shadow: rgb(88, 88, 86) 0px 4px 5px, rgb(78, 75, 70) 0px 8px 10px;
 }
 
+.title:hover {
+    letter-spacing: 1.5vw;
+}
+/* BAYAN TRANSFORMATION */
+
+/* when click on bayan__item bayan__content appears */
 .bayan__radio:checked + .bayan__label .bayan__content,
 .bayan__radio:checked + .bayan__label .bayan__header + .bayan__content {
     max-height: 100vh;
 }
 
+/* when hover over the checked bayan__item bayan__icon transforms */
 .bayan__item:hover .bayan__radio:checked .bayan__label .bayan__header .bayan__icon {
     opacity: 1;
     transform: rotate(45deg);
     transform-origin: center;
 }
 
+/* when hover whole bayan the unchecked items titles change color, ___ the same for checked item  */
 .bayan:hover .bayan__radio:not(:checked) + .bayan__label .bayan__header .bayan__title,
 .bayan__radio:checked + .bayan__label .bayan__header .bayan__title {
     color: wheat;
+    text-shadow: wheat 0px 0.5px 0.6px, wheat 0.3px 0.7px 0.8px;
 }
+
+/* when hover over the whole bayan the bayan__icon transforms on the checked bayan__item */
 .bayan:hover .bayan__radio:checked + .bayan__label .bayan__header .bayan__icon {
     transform: rotate(45deg);
 }
+
+
+/* !!!!!Problem */
+
+
+/* when click on bayan__item it changes */
 .bayan__radio:active + .bayan__label .bayan__header .bayan__title,
 .bayan__radio:active + .bayan__label .bayan__header .bayan__icon {
     color:darkgray;
+    text-shadow:  darkgray 0px 0.5px 0.6px, darkgray 0.3px 0.7px 0.8px;;
 }
-
 .bayan__radio:active + .bayan__label .bayan__content > .bayan__img {
     opacity: 0.5;
 }
 
+/* MEDIA  */
 
-/* Media  */
+/* if divece have :hover ability this rules will apply */
 
 @media (hover:hover) {
     .bayan:hover .bayan__icon {
@@ -133,11 +159,14 @@ img {
         transform: rotate(45deg);
     }
 }
-/* make visible the icons for touch diveses, and devises that doesnt have hover */
+/* make visible the icons for touch diveses, and devises that doesnt have hover and avoid of changing  letter-spacing of title when click on mobile */
 
 @media (pointer: coarse) and (hover: none) {
     .bayan__icon {
         opacity: 1;
+    }
+    .title:hover {
+        letter-spacing: normal;
     }
 }
 
@@ -145,8 +174,14 @@ img {
     .wrapper {
         max-width: 80%;
     }
+    .bayan__title {
+        font-size: 1.4rem;
+    }
+    .bayan__icon {
+        font-size: 1.5rem;
+    }
     .bayan__img {
-        margin: 1.5rem auto;
+        margin: 0rem auto 1.5rem auto;
         max-width: 50%;
     }
 }
@@ -157,8 +192,11 @@ img {
     .bayan__header {
         padding: 0.4rem 1rem;
     }
+    .bayan__title {
+        font-size: 1.3rem;
+    }
     .bayan__img {
-        margin: 1rem auto;
+        margin: 0rem auto 1rem auto;
         max-width: 70%;
     }
 }
@@ -166,5 +204,8 @@ img {
     .wrapper {
         max-width: 95%;
         padding: 1rem;
+    }
+    .bayan__icon {
+        font-size: 1.4rem;
     }
 }
