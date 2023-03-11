@@ -14,8 +14,9 @@ body {
     background-color: bisque;
 }
 img {
-    width: 100%;
+    width: 150px;
     display: block;
+    margin: 0 auto;
 }
 .wrapper {
     overflow: hidden;
@@ -37,19 +38,22 @@ img {
 
 /* Bayan */
 .bayan__content {
-   max-height: 0;
-   overflow: hidden;
-   transition: max-height 0.5s;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease-in-out;
 }
-.bayan__title {
-    width: 100%;
+.bayan__icon {
+    align-self: flex-start;
+    opacity: 0;
+    transition: all 1s;
+}
+.bayan__label {
     font-size: 1.5rem;
     margin-bottom: 2em;
     cursor: pointer;
 }
 .bayan__radio {
     display: none;
-    width: 100%;
 }
 .bayan__item {
     background-color: rgb(148, 108, 48);
@@ -61,12 +65,57 @@ img {
     margin-bottom: 2rem;
     transition: all 0.5s;
 }
-.bayan__item:hover,
-.bayan__radio:checked ~ .bayan__item {
-    background-color: aqua;
+.bayan__header {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+.bayan__title {
+    color: black;
+    transition: all 0.6s;
+}
+.bayan__img {
+    transition: all 0.6s;
 }
 
-.bayan__radio:checked ~ .bayan__content,
-.bayan__radio:hover ~ .bayan__content {
-    max-height: 100%;
+/* .bayan__item:hover,
+.bayan__radio:checked ~ .bayan__item {
+    background-color: aqua;
+} */
+.bayan__item:hover .bayan__content,
+.bayan__radio:checked + .bayan__label .bayan__content,
+.bayan__radio:hover + .bayan__label .bayan__content,
+.bayan__radio:checked + .bayan__label .bayan__header + .bayan__content {
+    max-height: 100vh;
+}
+.bayan__item:hover .bayan__label  .bayan__header .bayan__icon {
+    opacity: 1;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+.bayan__item:hover .bayan__radio:checked .bayan__label .bayan__header .bayan__icon {
+    opacity: 1;
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.wrapper:hover .bayan__icon {
+    opacity: 1;
+}
+
+.wrapper:hover .bayan__radio:not(:checked) + .bayan__label .bayan__header .bayan__title,
+.bayan__radio:checked + .bayan__label .bayan__header .bayan__title {
+    color: wheat;
+}
+.wrapper:hover .bayan__radio:checked + .bayan__label .bayan__header .bayan__icon {
+    transform: rotate(45deg);
+}
+.bayan__radio:active + .bayan__label .bayan__header .bayan__title {
+    color:brown;
+}
+.bayan__radio:active + .bayan__label .bayan__content > .bayan__img {
+    opacity: 0.5;
 }
